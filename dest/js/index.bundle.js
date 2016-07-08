@@ -699,228 +699,6 @@ $__System.register("1f", ["20", "1d", "1e"], function (_export) {
 			})();
 
 			_export("default", Obj);
-
-			// (function() {
-			// 	function Velocity(angle, force, friction, offset){
-			// 		this.init(angle, force, friction, offset);
-			// 	}
-			// 	Velocity.prototype.set = function(angle, force, friction){//设置速度向量，由弧度和角加速度计算
-			// 		this._force = force;
-			// 		this._angle = angle;
-			// 		this._friction = friction;
-			// 		this.setXY(util.decomposeVelocity(this._angle, this._force));
-			// 	};
-			// 	Velocity.prototype.setX = function(vx){
-			// 		this._vx = vx;
-			// 	};
-			// 	Velocity.prototype.setY = function(vy){
-			// 		this._vy = vy;
-			// 	};
-			// 	Velocity.prototype.setXY = function(v, easing){
-			// 		easing = easing || 1;
-			// 		if( Math.abs(v.x) < 1 && Math.abs(v.y) < 1 )
-			// 		{
-			// 			this._vx = this._vy = 0;
-			// 			return false;
-			// 		}
-			// 		else
-			// 		{
-			// 			this._vx = v.x * easing;
-			// 			this._vy = v.y * easing;
-			// 			return true;
-			// 		}
-			// 	};
-			// 	Velocity.prototype.calculate = function(){
-			// 		this._vx *= this._friction;
-			// 		this._vy *= this._friction
-			// 	};
-			// 	Velocity.prototype.increaForce = function(angle, force){
-			// 		var increa = util.decomposeVelocity(angle, force);
-			// 		this._vx += increa.x;
-			// 		this._vy += increa.y;
-			// 	};
-			// 	Velocity.prototype.resetIncreaForce = function(){
-			// 		this._ax = 0;
-			// 		this._ay = 0;
-			// 	};
-			// 	Velocity.prototype.getAngle = function(){
-			// 		return this._angle;
-			// 	}
-			// 	Velocity.prototype.setAngle = function(angle){
-			// 		this._angle = angle;
-			// 		return angle;
-			// 	}
-			// 	Velocity.prototype.getForce = function(){
-			// 		return this._force;
-			// 	}
-			// 	Velocity.prototype.setForce = function(force){
-			// 		this._force = force;
-			// 		return force;
-			// 	}
-			// 	Velocity.prototype.reset = function(){
-			// 		this._vx = 0;//x轴速度
-			// 		this._vy = 0;//y轴速度
-			// 		this._force = 0;//角加速度
-			// 		this._angle = 0;
-			// 		this._friction = 0;
-			// 	};
-			// 	Velocity.prototype.init = function(angle, force, friction, offset){
-			// 		this._force = force;//角加速度
-			// 		this._angle = angle;
-			// 		this._friction = friction;
-			// 		this._offset = offset || 0;
-			// 		this.setXY(util.decomposeVelocity(this._angle, this._force));
-			// 	};
-			// 	Velocity.prototype.bounce = function(b){
-			// 		this._vx *= b;//x轴速度
-			// 		this._vy *= b;//y轴速度
-			// 	};
-			// 	Velocity.prototype.get = function(pos){
-			// 		if(pos === "x")
-			// 		{
-			// 			return this._vx;
-			// 		}
-			// 		else
-			// 		{
-			// 			return this._vy;
-			// 		}
-			// 	};
-			// 	// function Obj(x, y, width, height){
-			// 	// 	this._x = x;
-			// 	// 	this._y = y;
-			// 	// 	this._width = width;
-			// 	// 	this._height = height;
-			// 	// 	this._color = "#ffff00";
-			// 	// 	this._scaleX = 1;
-			// 	// 	this._scaleY = 1;
-			// 	// 	this._lineWidth = 1;
-			// 	// 	this._rotation = 0;
-			// 	// 	this.vs = {};
-			// 	// 	this.vbs = [];
-			// 	// 	this._bounce = -1.7;
-			// 	// }
-			// 	// Obj.prototype.getHeight = function(){
-			// 	// 	return this._height;
-			// 	// };
-			// 	// Obj.prototype.getWidth = function(){
-			// 	// 	return this._width;
-			// 	// };
-			// 	// Obj.prototype.getBounds = function(){
-			// 	// 	return {
-			// 	// 		x : this._x,
-			// 	// 		y : this._y,
-			// 	// 		width : this._width,
-			// 	// 		height : this._height
-			// 	// 	};
-			// 	// };
-			// 	// Obj.prototype.cleanVBS = function(){
-			// 	// 	for(var i = 0; i < this.vbs.length; i++)
-			// 	// 	{
-			// 	// 		ve = this.vbs[i];
-			// 	// 		ve.calculate();
-			// 	// 		if( Math.abs(ve.get("x")) < 1 && Math.abs(ve.get("y")) < 1 )
-			// 	// 		{
-			// 	// 			this.vbs.splice(i,1);
-			// 	// 			return true;
-			// 	// 		}
-			// 	// 	}
-			// 	// 	return false;
-			// 	// };
-			// 	// Obj.prototype.calculate = function(noFri){
-			// 	// 	var x = 0;
-			// 	// 	var y = 0;
-			// 	// 	for(var v in this.vs)
-			// 	// 	{
-			// 	// 		var ve = this.vs[v];
-			// 	// 		!noFri && ve.calculate();//力
-			// 	// 		x += ve.get("x");
-			// 	// 		y += ve.get("y");
-			// 	// 	}
-			// 	// 	for(var i = 0; i < this.vbs.length; i++)
-			// 	// 	{
-			// 	// 		ve = this.vbs[i];
-			// 	// 		!noFri && ve.calculate();
-			// 	// 		x += ve.get("x");
-			// 	// 		y += ve.get("y");
-			// 	// 	}
-			// 	// 	return {
-			// 	// 		x : x,
-			// 	// 		y : y
-			// 	// 	};
-			// 	// };
-			// 	// Obj.prototype.run = function(self){
-			// 	// 	var v = this.calculate();
-			// 	// 	this.setX(v.x, self);//应用计算后的结果
-			// 	// 	this.setY(v.y, self);
-			// 	// };
-			// 	// Obj.prototype.bounce = function(){
-			// 	// 	var v = this.calculate();
-			// 	// 	v = {
-			// 	// 		x : v.x * this._bounce,
-			// 	// 		y : v.y *  this._bounce
-			// 	// 	};
-			// 	// 	var pos = this.getXY();
-			// 	// 	var ve = util.getVelocity({
-			// 	// 		x : pos.x + v.x,
-			// 	// 		y : pos.y + v.y
-			// 	// 	}, pos);
-			// 	// 	this.vbs.push(new Velocity(ve.angle, ve.distance, 0.9));
-			// 	// 	this.cleanVBS();
-			// 	// };
-			// 	// Obj.prototype.setColor = function(color) {
-			// 	// 	this._color = color;
-			// 	// };
-			// 	// Obj.prototype.setRotation = function(r){
-			// 	// 	this._rotation = r;
-			// 	// };
-			// 	// Obj.prototype.getRotation = function(){
-			// 	// 	return this._rotation;
-			// 	// };
-			// 	// Obj.prototype.scaleY = function(scaleY){
-			// 	// 	this._scaleY = scaleY;
-			// 	// };
-			// 	// Obj.prototype.scaleX = function(scaleX){
-			// 	// 	this._scaleX = scaleX;
-			// 	// };
-			// 	// Obj.prototype.setY = function(y, self){
-			// 	// 	if(self)
-			// 	// 	{
-			// 	// 		this._y += y;
-			// 	// 	}
-			// 	// 	else
-			// 	// 	{
-			// 	// 		this._y = y;
-			// 	// 	}
-			// 	// };
-			// 	// Obj.prototype.setX = function(x, self){
-			// 	// 	if(self)
-			// 	// 	{
-			// 	// 		this._x += x;
-			// 	// 	}
-			// 	// 	else
-			// 	// 	{
-			// 	// 		this._x = x;
-			// 	// 	}
-			// 	// };
-			// 	// Obj.prototype.setXY = function(x, y){
-			// 	// 	this._x = x;
-			// 	// 	this._y = y;
-			// 	// };
-			// 	// Obj.prototype.getY = function(){
-			// 	// 	return this._y;
-			// 	// };
-			// 	// Obj.prototype.getX = function(){
-			// 	// 	return this._x;
-			// 	// };
-			// 	// Obj.prototype.getXY = function(){
-			// 	// 	return {
-			// 	// 		x : this._x,
-			// 	// 		y : this._y
-			// 	// 	};
-			// 	// };
-			// 	// window.Obj = Obj;
-			// 	window.Velocity = Velocity;
-			// }());
 		}
 	};
 });
@@ -1076,143 +854,7 @@ $__System.register("20", [], function (_export) {
 $__System.register("22", ["20", "21", "23"], function (_export) {
     "use strict";
 
-    var util, Node, $;
-
-    _export("default", drawNodeGarden);
-
-    function drawNodeGarden(el) {
-        var context = el[0].getContext("2d");
-        el.attr("width", $(window).width());
-        el.attr("height", $(window).height());
-        el.width($(window).width());
-        el.height($(window).height());
-        var width = el.width();
-        var height = el.height();
-        var center = {
-            x: width / 2,
-            y: height / 2
-        };
-        var minDits = 150;
-        var springAmount = 0.0000005;
-        var nodes = [];
-        var nodeNum = 150;
-        for (var i = 0; i < nodeNum; i++) {
-            var radius = Math.random() * 5 + 1;
-            var node = new Node(Math.random() * width, Math.random() * height, radius);
-            node.mass = radius * 0.02;
-            node.vx = 0.5 - Math.random();
-            node.vy = 0.5 - Math.random();
-            node.setColor("white");
-            nodes.push(node);
-        }
-        var rotate = function rotate(x, y, sin, cos, reverse) {
-            return {
-                x: reverse ? x * cos + y * sin : x * cos - y * sin,
-                y: reverse ? y * cos - x * sin : y * cos + x * sin
-            };
-        };
-        var checkCollision = function checkCollision(partA, partB) {
-            var dx = partB.getX() - partA.getX();
-            var dy = partB.getY() - partA.getY();
-            var dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < partA.getRadius() + partB.getRadius()) {
-                var angle = Math.atan2(dy, dx);
-                var sin = Math.sin(angle);
-                var cos = Math.cos(angle);
-                //partA作为旋转的中心，坐标为0
-                var base = {
-                    x: partA.getX(),
-                    y: partA.getY()
-                };
-                var pos0 = {
-                    x: 0,
-                    y: 0
-                };
-
-                //以partA为中心，partB旋转之后的坐标
-                var pos1 = rotate(dx, dy, sin, cos, true);
-
-                //partA旋转之后的加速度
-                var vel0 = rotate(partA.vx, partA.vy, sin, cos, true);
-
-                //partB旋转之后的加速度
-                var vel1 = rotate(partB.vx, partB.vy, sin, cos, true);
-
-                //碰撞之后的加速度
-                var vxTotal = vel0.x - vel1.x;
-                vel0.x = ((partA.mass - partB.mass) * vel0.x + 2 * partB.mass * vel1.x) / (partA.mass + partB.mass);
-                vel1.x = vxTotal + vel0.x;
-                pos0.x += vel0.x;
-                pos1.x += vel1.x;
-
-                var absV = Math.abs(vel0.x) + Math.abs(vel1.x);
-                var overlap = partA.getRadius() + partB.getRadius() - Math.abs(pos0.x - pos1.x);
-                pos0.x += vel0.x / absV * overlap;
-                pos1.x += vel1.x / absV * overlap;
-
-                //旋转回到原本角度
-                var pos0f = rotate(pos0.x, pos0.y, sin, cos, false);
-                var pos1f = rotate(pos1.x, pos1.y, sin, cos, false);
-
-                //调整node位置
-                partA.setX(base.x + pos0f.x);
-                partA.setY(base.y + pos0f.y);
-                partB.setX(base.x + pos1f.x);
-                partB.setY(base.y + pos1f.y);
-
-                //旋转加速度方向
-                var vel0f = rotate(vel0.x, vel0.y, sin, cos, false);
-                var vel1f = rotate(vel1.x, vel1.y, sin, cos, false);
-                partA.vx = vel0f.x;
-                partA.vy = vel0f.y;
-                partB.vx = vel1f.x;
-                partB.vy = vel1f.y;
-            }
-        };
-        var spring = function spring(partA, partB) {
-            var dx = partB.getX() - partA.getX();
-            var dy = partB.getY() - partA.getY();
-            var dist = Math.sqrt(dx * dx + dy * dy);
-            if (minDits > dist) {
-                util.connectWithLine(context, partA, partB, "rgba(255,255,255,0.3)");
-                var ax = dx * springAmount;
-                var ay = dy * springAmount;
-                partA.vx += ax;
-                partA.vy += ay;
-                partB.vx -= ax;
-                partB.vy -= ay;
-            }
-        };
-        var move = function move(partA, index) {
-            partA.setX(partA.vx, true);
-            partA.setY(partA.vy, true);
-            if (partA.getX() > width + partA.getRadius()) {
-                partA.setX(0);
-            } else if (partA.getX() < -partA.getRadius()) {
-                partA.setX(width);
-            }
-            if (partA.getY() > height + partA.getRadius()) {
-                partA.setY(0);
-            } else if (partA.getY() < -partA.getRadius()) {
-                partA.setY(height);
-            }
-            for (var j = index + 1; j < nodeNum; j++) {
-                checkCollision(partA, nodes[j]);
-                spring(partA, nodes[j]);
-            }
-        };
-        var draw = function draw(node) {
-            node.draw(context);
-        };
-        function drawFrame() {
-            requestAnimationFrame(drawFrame);
-            context.clearRect(0, 0, width, height);
-            nodes.forEach(move);
-            nodes.forEach(draw);
-        };
-        requestAnimationFrame(drawFrame);
-    }
-
+    var util, Node, $, context, width, height, center, minDits, springAmount, nodes, nodeNum, rotate, checkCollision, spring, move, draw, init, genNodes, drawNodeGarden;
     return {
         setters: [function (_3) {
             util = _3["default"];
@@ -1222,7 +864,164 @@ $__System.register("22", ["20", "21", "23"], function (_export) {
             $ = _["default"];
         }],
         execute: function () {
-            ;
+            context = null;
+            width = $(window).width();
+            height = $(window).height();
+            center = {
+                x: width / 2,
+                y: height / 2
+            };
+            minDits = 150;
+            springAmount = 0.0000005;
+            nodes = [];
+            nodeNum = 150;
+
+            rotate = function rotate(x, y, sin, cos, reverse) {
+                return {
+                    x: reverse ? x * cos + y * sin : x * cos - y * sin,
+                    y: reverse ? y * cos - x * sin : y * cos + x * sin
+                };
+            };
+
+            checkCollision = function checkCollision(partA, partB) {
+                var dx = partB.getX() - partA.getX();
+                var dy = partB.getY() - partA.getY();
+                var dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < partA.getRadius() + partB.getRadius()) {
+                    var angle = Math.atan2(dy, dx);
+                    var sin = Math.sin(angle);
+                    var cos = Math.cos(angle);
+                    //partA作为旋转的中心，坐标为0
+                    var base = {
+                        x: partA.getX(),
+                        y: partA.getY()
+                    };
+                    var pos0 = {
+                        x: 0,
+                        y: 0
+                    };
+
+                    //以partA为中心，partB旋转之后的坐标
+                    var pos1 = rotate(dx, dy, sin, cos, true);
+
+                    //partA旋转之后的加速度
+                    var vel0 = rotate(partA.vx, partA.vy, sin, cos, true);
+
+                    //partB旋转之后的加速度
+                    var vel1 = rotate(partB.vx, partB.vy, sin, cos, true);
+
+                    //碰撞之后的加速度
+                    var vxTotal = vel0.x - vel1.x;
+                    vel0.x = ((partA.mass - partB.mass) * vel0.x + 2 * partB.mass * vel1.x) / (partA.mass + partB.mass);
+                    vel1.x = vxTotal + vel0.x;
+                    pos0.x += vel0.x;
+                    pos1.x += vel1.x;
+
+                    var absV = Math.abs(vel0.x) + Math.abs(vel1.x);
+                    var overlap = partA.getRadius() + partB.getRadius() - Math.abs(pos0.x - pos1.x);
+                    pos0.x += vel0.x / absV * overlap;
+                    pos1.x += vel1.x / absV * overlap;
+
+                    //旋转回到原本角度
+                    var pos0f = rotate(pos0.x, pos0.y, sin, cos, false);
+                    var pos1f = rotate(pos1.x, pos1.y, sin, cos, false);
+
+                    //调整node位置
+                    partA.setX(base.x + pos0f.x);
+                    partA.setY(base.y + pos0f.y);
+                    partB.setX(base.x + pos1f.x);
+                    partB.setY(base.y + pos1f.y);
+
+                    //旋转加速度方向
+                    var vel0f = rotate(vel0.x, vel0.y, sin, cos, false);
+                    var vel1f = rotate(vel1.x, vel1.y, sin, cos, false);
+                    partA.vx = vel0f.x;
+                    partA.vy = vel0f.y;
+                    partB.vx = vel1f.x;
+                    partB.vy = vel1f.y;
+                }
+            };
+
+            spring = function spring(partA, partB) {
+                var dx = partB.getX() - partA.getX();
+                var dy = partB.getY() - partA.getY();
+                var dist = Math.sqrt(dx * dx + dy * dy);
+                if (minDits > dist) {
+                    util.connectWithLine(context, partA, partB, "rgba(255,255,255,0.3)");
+                    var ax = dx * springAmount;
+                    var ay = dy * springAmount;
+                    partA.vx += ax;
+                    partA.vy += ay;
+                    partB.vx -= ax;
+                    partB.vy -= ay;
+                }
+            };
+
+            move = function move(partA, index) {
+                partA.setX(partA.vx, true);
+                partA.setY(partA.vy, true);
+                if (partA.getX() > width + partA.getRadius()) {
+                    partA.setX(0);
+                } else if (partA.getX() < -partA.getRadius()) {
+                    partA.setX(width);
+                }
+                if (partA.getY() > height + partA.getRadius()) {
+                    partA.setY(0);
+                } else if (partA.getY() < -partA.getRadius()) {
+                    partA.setY(height);
+                }
+                for (var j = index + 1; j < nodeNum; j++) {
+                    checkCollision(partA, nodes[j]);
+                    spring(partA, nodes[j]);
+                }
+            };
+
+            draw = function draw(node) {
+                node.draw(context);
+            };
+
+            init = function init(el) {
+                width = $(window).width();
+                height = $(window).height();
+                context = el[0].getContext("2d");
+                el.attr("width", width);
+                el.attr("height", height);
+                el.width(width);
+                el.height(height);
+                center = {
+                    x: width / 2,
+                    y: height / 2
+                };
+            };
+
+            genNodes = function genNodes() {
+                for (var i = 0; i < nodeNum; i++) {
+                    var radius = Math.random() * 5 + 1;
+                    var node = new Node(Math.random() * width, Math.random() * height, radius);
+                    node.mass = radius * 0.02;
+                    node.vx = 0.5 - Math.random();
+                    node.vy = 0.5 - Math.random();
+                    node.setColor("white");
+                    nodes.push(node);
+                }
+            };
+
+            drawNodeGarden = function drawNodeGarden(el) {
+                init(el);
+                genNodes();
+                function drawFrame() {
+                    requestAnimationFrame(drawFrame);
+                    context.clearRect(0, 0, width, height);
+                    nodes.forEach(move);
+                    nodes.forEach(draw);
+                };
+                requestAnimationFrame(drawFrame);
+                $(window).on("resize", null, function (e) {
+                    init(el);
+                });
+            };
+
+            _export("default", drawNodeGarden);
         }
     };
 });
@@ -1230,7 +1029,7 @@ $__System.register("22", ["20", "21", "23"], function (_export) {
 $__System.register("24", ["23"], function (_export) {
     "use strict";
 
-    var $, context, width, height, center, size, sizeHalf, totalWidth, offsetLeft, col, colHalf, formet, init, genFonts, genRects, getTimeText, draw, drawTime;
+    var $, context, width, height, center, size, sizeHalf, totalWidth, offsetLeft, col, colHalf, formet, genFonts, genRects, getTimeText, draw, init, drawTime;
     return {
         setters: [function (_) {
             $ = _["default"];
@@ -1258,23 +1057,8 @@ $__System.register("24", ["23"], function (_export) {
                 return str;
             };
 
-            init = function init() {
-                width = $(window).width();
-                height = $(window).height();
-                center = {
-                    x: width / 2,
-                    y: height / 2
-                };
-                size = 150;
-                sizeHalf = size / 2;
-                totalWidth = 1280;
-                offsetLeft = (width - totalWidth) / 2;
-                col = totalWidth / 8;
-                colHalf = col / 2;
-            };
-
             genFonts = function genFonts(context) {
-                context.font = size + "px 微软雅黑";
+                context.font = "lighter " + size + "px 微软雅黑";
                 context.textAlign = "center";
                 context.textBaseline = "middle";
                 context.fillStyle = "red";
@@ -1283,7 +1067,7 @@ $__System.register("24", ["23"], function (_export) {
                     var nowLeftPos = col * i;
                     var nowPosCenter = nowLeftPos + colHalf;
                     var nowPos = nowPosCenter - sizeHalf;
-                    context.fillText(text[i], offsetLeft + nowPos + sizeHalf, center.y + sizeHalf / 2);
+                    context.fillText(text[i], offsetLeft + nowPos + sizeHalf, center.y);
                 }
                 text = null;
             };
@@ -1294,7 +1078,7 @@ $__System.register("24", ["23"], function (_export) {
                     var nowLeftPos = col * i;
                     var nowPosCenter = nowLeftPos + colHalf;
                     var nowPos = nowPosCenter - sizeHalf;
-                    context.fillRect(offsetLeft + nowPos, center.y - sizeHalf / 2, size, size);
+                    context.fillRect(offsetLeft + nowPos, center.y - sizeHalf, size, size);
                 }
             };
 
@@ -1313,19 +1097,37 @@ $__System.register("24", ["23"], function (_export) {
                 context.restore();
             };
 
-            drawTime = function drawTime(el) {
+            init = function init(el) {
+                width = $(window).width();
+                height = $(window).height();
+                center = {
+                    x: width / 2,
+                    y: height / 2
+                };
+                size = 150;
+                sizeHalf = size / 2;
+                totalWidth = 1280;
+                offsetLeft = (width - totalWidth) / 2;
+                col = totalWidth / 8;
+                colHalf = col / 2;
                 context = el[0].getContext("2d");
                 el.attr("width", width);
                 el.attr("height", height);
                 el.width(width);
                 el.height(height);
+            };
 
+            drawTime = function drawTime(el) {
+                init(el);
                 function drawFrame() {
                     requestAnimationFrame(drawFrame);
                     context.clearRect(0, 0, width, height);
                     draw(context);
                 };
                 requestAnimationFrame(drawFrame);
+                $(window).on("resize", null, function (e) {
+                    init(el);
+                });
             };
 
             _export("default", drawTime);
@@ -1424,6 +1226,183 @@ $__System.register("26", ["25"], function (_export) {
 });
 
 $__System.registerDynamic("27", [], true, function($__require, exports, module) {
+  ;
+  var define,
+      global = this,
+      GLOBAL = this;
+  "format cjs";
+  (function(factory) {
+    if (typeof define === 'function' && define.amd) {
+      define(['jquery'], factory);
+    } else if (typeof exports === 'object') {
+      module.exports = factory;
+    } else {
+      factory(jQuery);
+    }
+  }(function($) {
+    var toFix = ['wheel', 'mousewheel', 'DOMMouseScroll', 'MozMousePixelScroll'],
+        toBind = ('onwheel' in document || document.documentMode >= 9) ? ['wheel'] : ['mousewheel', 'DomMouseScroll', 'MozMousePixelScroll'],
+        slice = Array.prototype.slice,
+        nullLowestDeltaTimeout,
+        lowestDelta;
+    if ($.event.fixHooks) {
+      for (var i = toFix.length; i; ) {
+        $.event.fixHooks[toFix[--i]] = $.event.mouseHooks;
+      }
+    }
+    var special = $.event.special.mousewheel = {
+      version: '3.1.12',
+      setup: function() {
+        if (this.addEventListener) {
+          for (var i = toBind.length; i; ) {
+            this.addEventListener(toBind[--i], handler, false);
+          }
+        } else {
+          this.onmousewheel = handler;
+        }
+        $.data(this, 'mousewheel-line-height', special.getLineHeight(this));
+        $.data(this, 'mousewheel-page-height', special.getPageHeight(this));
+      },
+      teardown: function() {
+        if (this.removeEventListener) {
+          for (var i = toBind.length; i; ) {
+            this.removeEventListener(toBind[--i], handler, false);
+          }
+        } else {
+          this.onmousewheel = null;
+        }
+        $.removeData(this, 'mousewheel-line-height');
+        $.removeData(this, 'mousewheel-page-height');
+      },
+      getLineHeight: function(elem) {
+        var $elem = $(elem),
+            $parent = $elem['offsetParent' in $.fn ? 'offsetParent' : 'parent']();
+        if (!$parent.length) {
+          $parent = $('body');
+        }
+        return parseInt($parent.css('fontSize'), 10) || parseInt($elem.css('fontSize'), 10) || 16;
+      },
+      getPageHeight: function(elem) {
+        return $(elem).height();
+      },
+      settings: {
+        adjustOldDeltas: true,
+        normalizeOffset: true
+      }
+    };
+    $.fn.extend({
+      mousewheel: function(fn) {
+        return fn ? this.bind('mousewheel', fn) : this.trigger('mousewheel');
+      },
+      unmousewheel: function(fn) {
+        return this.unbind('mousewheel', fn);
+      }
+    });
+    function handler(event) {
+      var orgEvent = event || window.event,
+          args = slice.call(arguments, 1),
+          delta = 0,
+          deltaX = 0,
+          deltaY = 0,
+          absDelta = 0,
+          offsetX = 0,
+          offsetY = 0;
+      event = $.event.fix(orgEvent);
+      event.type = 'mousewheel';
+      if ('detail' in orgEvent) {
+        deltaY = orgEvent.detail * -1;
+      }
+      if ('wheelDelta' in orgEvent) {
+        deltaY = orgEvent.wheelDelta;
+      }
+      if ('wheelDeltaY' in orgEvent) {
+        deltaY = orgEvent.wheelDeltaY;
+      }
+      if ('wheelDeltaX' in orgEvent) {
+        deltaX = orgEvent.wheelDeltaX * -1;
+      }
+      if ('axis' in orgEvent && orgEvent.axis === orgEvent.HORIZONTAL_AXIS) {
+        deltaX = deltaY * -1;
+        deltaY = 0;
+      }
+      delta = deltaY === 0 ? deltaX : deltaY;
+      if ('deltaY' in orgEvent) {
+        deltaY = orgEvent.deltaY * -1;
+        delta = deltaY;
+      }
+      if ('deltaX' in orgEvent) {
+        deltaX = orgEvent.deltaX;
+        if (deltaY === 0) {
+          delta = deltaX * -1;
+        }
+      }
+      if (deltaY === 0 && deltaX === 0) {
+        return;
+      }
+      if (orgEvent.deltaMode === 1) {
+        var lineHeight = $.data(this, 'mousewheel-line-height');
+        delta *= lineHeight;
+        deltaY *= lineHeight;
+        deltaX *= lineHeight;
+      } else if (orgEvent.deltaMode === 2) {
+        var pageHeight = $.data(this, 'mousewheel-page-height');
+        delta *= pageHeight;
+        deltaY *= pageHeight;
+        deltaX *= pageHeight;
+      }
+      absDelta = Math.max(Math.abs(deltaY), Math.abs(deltaX));
+      if (!lowestDelta || absDelta < lowestDelta) {
+        lowestDelta = absDelta;
+        if (shouldAdjustOldDeltas(orgEvent, absDelta)) {
+          lowestDelta /= 40;
+        }
+      }
+      if (shouldAdjustOldDeltas(orgEvent, absDelta)) {
+        delta /= 40;
+        deltaX /= 40;
+        deltaY /= 40;
+      }
+      delta = Math[delta >= 1 ? 'floor' : 'ceil'](delta / lowestDelta);
+      deltaX = Math[deltaX >= 1 ? 'floor' : 'ceil'](deltaX / lowestDelta);
+      deltaY = Math[deltaY >= 1 ? 'floor' : 'ceil'](deltaY / lowestDelta);
+      if (special.settings.normalizeOffset && this.getBoundingClientRect) {
+        var boundingRect = this.getBoundingClientRect();
+        offsetX = event.clientX - boundingRect.left;
+        offsetY = event.clientY - boundingRect.top;
+      }
+      event.deltaX = deltaX;
+      event.deltaY = deltaY;
+      event.deltaFactor = lowestDelta;
+      event.offsetX = offsetX;
+      event.offsetY = offsetY;
+      event.deltaMode = 0;
+      args.unshift(event, delta, deltaX, deltaY);
+      if (nullLowestDeltaTimeout) {
+        clearTimeout(nullLowestDeltaTimeout);
+      }
+      nullLowestDeltaTimeout = setTimeout(nullLowestDelta, 200);
+      return ($.event.dispatch || $.event.handle).apply(this, args);
+    }
+    function nullLowestDelta() {
+      lowestDelta = null;
+    }
+    function shouldAdjustOldDeltas(orgEvent, absDelta) {
+      return special.settings.adjustOldDeltas && orgEvent.type === 'mousewheel' && absDelta % 120 === 0;
+    }
+  }));
+  return module.exports;
+});
+
+$__System.registerDynamic("28", ["27"], true, function($__require, exports, module) {
+  ;
+  var define,
+      global = this,
+      GLOBAL = this;
+  module.exports = $__require('27');
+  return module.exports;
+});
+
+$__System.registerDynamic("29", [], true, function($__require, exports, module) {
   ;
   var define,
       global = this,
@@ -1535,24 +1514,6 @@ $__System.registerDynamic("27", [], true, function($__require, exports, module) 
   return module.exports;
 });
 
-$__System.registerDynamic("28", ["27"], true, function($__require, exports, module) {
-  ;
-  var define,
-      global = this,
-      GLOBAL = this;
-  module.exports = $__require('27');
-  return module.exports;
-});
-
-$__System.registerDynamic("29", ["28"], true, function($__require, exports, module) {
-  ;
-  var define,
-      global = this,
-      GLOBAL = this;
-  module.exports = $__System._nodeRequire ? process : $__require('28');
-  return module.exports;
-});
-
 $__System.registerDynamic("2a", ["29"], true, function($__require, exports, module) {
   ;
   var define,
@@ -1563,6 +1524,24 @@ $__System.registerDynamic("2a", ["29"], true, function($__require, exports, modu
 });
 
 $__System.registerDynamic("2b", ["2a"], true, function($__require, exports, module) {
+  ;
+  var define,
+      global = this,
+      GLOBAL = this;
+  module.exports = $__System._nodeRequire ? process : $__require('2a');
+  return module.exports;
+});
+
+$__System.registerDynamic("2c", ["2b"], true, function($__require, exports, module) {
+  ;
+  var define,
+      global = this,
+      GLOBAL = this;
+  module.exports = $__require('2b');
+  return module.exports;
+});
+
+$__System.registerDynamic("2d", ["2c"], true, function($__require, exports, module) {
   ;
   var define,
       global = this,
@@ -7676,20 +7655,20 @@ $__System.registerDynamic("2b", ["2a"], true, function($__require, exports, modu
       }
       return jQuery;
     });
-  })($__require('2a'));
+  })($__require('2c'));
   return module.exports;
 });
 
-$__System.registerDynamic("23", ["2b"], true, function($__require, exports, module) {
+$__System.registerDynamic("23", ["2d"], true, function($__require, exports, module) {
   ;
   var define,
       global = this,
       GLOBAL = this;
-  module.exports = $__require('2b');
+  module.exports = $__require('2d');
   return module.exports;
 });
 
-$__System.register("2c", ["23"], function (_export) {
+$__System.register("2e", ["23"], function (_export) {
     /**
      * status [0, 1, 2]
      */
@@ -7747,6 +7726,13 @@ $__System.register("2c", ["23"], function (_export) {
                             wrapper.addClass("hide-time");
                             break;
                     }
+                },
+                init: function init() {
+                    var _this = this;
+
+                    setTimeout(function () {
+                        _this.applyStatus();
+                    }, 100);
                 }
             };
 
@@ -7755,10 +7741,43 @@ $__System.register("2c", ["23"], function (_export) {
     };
 });
 
-$__System.register("1", ["22", "23", "24", "26", "2c"], function (_export) {
+$__System.register("2f", ["23", "28", "2e"], function (_export) {
+				"use strict";
+
+				var $, mousewheel, setting, addEvents;
+				return {
+								setters: [function (_) {
+												$ = _["default"];
+								}, function (_2) {
+												mousewheel = _2["default"];
+								}, function (_e) {
+												setting = _e["default"];
+								}],
+								execute: function () {
+
+												mousewheel($);
+
+												addEvents = function addEvents() {
+																$(window).on("keydown mousewheel", null, function (e) {
+																				if (e.deltaY < 0 || e.keyCode === 40) {
+																								e.preventDefault();
+																								setting.upStatus();
+																				} else if (e.deltaY > 0 || e.keyCode === 38) {
+																								e.preventDefault();
+																								setting.downStatus();
+																				}
+																});
+												};
+
+												_export("default", addEvents);
+								}
+				};
+});
+
+$__System.register("1", ["22", "23", "24", "26", "2e", "2f"], function (_export) {
     "use strict";
 
-    var drawNodeGarden, $, drawTime, topsites, setting;
+    var drawNodeGarden, $, drawTime, printTopsites, setting, addEvents, init;
     return {
         setters: [function (_2) {
             drawNodeGarden = _2["default"];
@@ -7767,33 +7786,22 @@ $__System.register("1", ["22", "23", "24", "26", "2c"], function (_export) {
         }, function (_3) {
             drawTime = _3["default"];
         }, function (_4) {
-            topsites = _4["default"];
-        }, function (_c) {
-            setting = _c["default"];
+            printTopsites = _4["default"];
+        }, function (_e) {
+            setting = _e["default"];
+        }, function (_f) {
+            addEvents = _f["default"];
         }],
         execute: function () {
+            init = function init() {
+                drawNodeGarden($("#bg"));
+                drawTime($("#time"));
+                printTopsites($("#topsites>ul"));
+                addEvents();
+                setting.init();
+            };
 
-            drawNodeGarden($("#bg"));
-            drawTime($("#time"));
-            topsites($("#topsites>ul"));
-
-            $(window).on("keydown", null, function (e) {
-                switch (e.keyCode) {
-                    case 38:
-                        //up
-                        e.preventDefault();
-                        setting.downStatus();
-                        break;
-                    case 40:
-                        //down
-                        e.preventDefault();
-                        setting.upStatus();
-                        break;
-                }
-            });
-            setTimeout(function () {
-                setting.applyStatus();
-            }, 100);
+            init();
         }
     };
 });

@@ -3,9 +3,9 @@
     "name"            : "NodeTab",
     "short_name"      : "NodeTab",
     "version"         : "1.0.0",
-    "description"     : "A tab plugin base on node-garden",
-    "author"          : "Kenshin",
-    "homepage_url"    : "https://github.com/changelime",
+    "description"     : "A new tab extensions for Chrome base on node garden",
+    "author"          : "change li",
+    "homepage_url"    : "https://github.com/changelime/NodeTab",
     "chrome_url_overrides": {
         "newtab": "index.html"
     },

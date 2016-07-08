@@ -23,7 +23,7 @@ var formet = function(time){
     return str;
 };
 var genFonts = function genFonts(context){
-    context.font = size + "px 微软雅黑";
+    context.font = "lighter " + size + "px 微软雅黑";
     context.textAlign = "center";
     context.textBaseline = "middle";
     context.fillStyle = "red";

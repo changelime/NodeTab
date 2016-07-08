@@ -42,6 +42,7 @@ body
     height: 100vh;
     display: flex;
     justify-content: center;
+    align-items: center;
     position: absolute;
     top: 100vh;
     left: 0px;
@@ -51,11 +52,11 @@ body
 }
 .show-topsites>#time
 {
-    top: -40vh !important;
+    top: -35vh !important;
 }
 .show-topsites>#topsites
 {
-    top: 30vh !important;
+    top: 13vh !important;
 }
 .show-topsites.hide-time>#time
 {
@@ -63,13 +64,13 @@ body
 }
 .show-topsites.hide-time>#topsites
 {
-    top: 25vh !important;
+    top: 0vh !important;
 }
 #topsites>ul
 {
     display: flex;
     width: 980px;
-    height: 545px;
+    height: 500px;
     justify-content: space-around;
     align-items: center;
     padding: 0px;
