@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>New Tab</title>
+	<link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+	<canvas id="bg"></canvas>
+	<div id="wrapper" >
+		<canvas id="time"></canvas>
+		<div id="topsites" >
+			<ul>
+			</ul>
+		</div>
+	</div>
+	<!-- build:js ./js/index.bundle-min.js -->
+	<script src="./jspm_packages/system.js"></script>
+	<script src="./config.js"></script>
+	<script>
+		System.import("./js/index.js");
+	</script>
+	<!-- /build --> 
+</body>
+</html>

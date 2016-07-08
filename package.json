@@ -1,0 +1,29 @@
+{
+  "name": "nodetab",
+  "version": "1.0.0",
+  "description": "A tab plugin base on node-garden",
+  "author": "change li",
+  "license": "MIT",
+  "scripts": {
+    "indtall": "npm install && jspm install",
+    "built": "gulp built"
+  },
+  "jspm": {
+    "dependencies": {
+      "jquery": "npm:jquery@^3.0.0",
+      "jquery-mousewheel": "npm:jquery-mousewheel@^3.1.13"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4"
+    }
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-jspm": "^0.5.12",
+    "gulp-minify": "0.0.12",
+    "gulp-processhtml": "^1.1.0",
+    "jspm": "^0.16.39"
+  }
+}

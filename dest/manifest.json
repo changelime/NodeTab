@@ -1,0 +1,22 @@
+{
+    "manifest_version": 2,
+    "name"            : "NodeTab",
+    "short_name"      : "NodeTab",
+    "version"         : "1.0.0",
+    "description"     : "A tab plugin base on node-garden",
+    "author"          : "Kenshin",
+    "homepage_url"    : "https://github.com/changelime",
+    "chrome_url_overrides": {
+        "newtab": "index.html"
+    },
+    "icons": {
+        "16" : "icons/icon16.png",
+        "48" : "icons/icon48.png",
+        "128": "icons/icon128.png"
+    },
+    "content_security_policy": "script-src 'self' 'unsafe-eval' 'sha256-tTfa/iJQO1/07OApmwQ2k2Tm5XlwfS8KQbDTjasX4p0='; object-src 'self'",
+    "permissions": [
+        "topSites",
+        "storage"
+    ]
+}
