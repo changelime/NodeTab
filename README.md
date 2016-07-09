@@ -2,7 +2,7 @@
 一个基于Node Garden的Chrome新标签页扩展
 
 ## 安装
-Chrome 商店(暂无)
+[![webstore][webstore-badge]][webstore-link]
 
 ## 开发
 ```sh
@@ -30,7 +30,12 @@ Chrome 商店(暂无)
 * 状态会保存（即使再新建一个标签）直到再次被更改
 
 ## 演示
-![Demo Doccou alpha](demo.gif)
+![Demo](http://i.imgur.com/BXIfaSY.gif)
 
 ## 许可
 MIT
+
+
+<!-- Link -->
+[webstore-badge]:     https://img.shields.io/badge/install-google%20webstore-brightgreen.svg
+[webstore-link]:      https://chrome.google.com/webstore/detail/nodetab/blnaigipibhidkmocpndbblfkpmghaom
