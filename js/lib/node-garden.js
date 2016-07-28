@@ -12,7 +12,8 @@ var center = {
 var minDits = 150;
 var springAmount = 0.0000005;
 var nodes = [];
-var nodeNum = 150;
+var nodeNum = 100;
+var lineColors = "rgba(255,255,255,0.3)";
 
 
 var rotate = function(x, y, sin, cos, reverse){
@@ -87,7 +88,7 @@ var spring = function(partA, partB){
     var dist = Math.sqrt(dx * dx + dy * dy);
     if( minDits > dist ) 
     {
-        util.connectWithLine(context, partA, partB, "rgba(255,255,255,0.3)");
+        util.connectWithLine(context, partA, partB, lineColors);
         var ax = dx * springAmount;
         var ay = dy * springAmount;
         partA.vx += ax;
@@ -149,14 +150,20 @@ var genNodes = function genNodes(){
         nodes.push(node);
     }
 };
+var eachNode = function eachNode() {
+    for(var i = 0; i < nodeNum; i++)
+    {
+        move(nodes[i], i);
+        draw(nodes[i], i);
+    }
+};
 var drawNodeGarden = function drawNodeGarden(el) {
     init(el);
     genNodes();
     function drawFrame(){
         requestAnimationFrame(drawFrame);
         context.clearRect(0, 0, width, height);
-        nodes.forEach(move);
-        nodes.forEach(draw);
+        eachNode();
     };
     requestAnimationFrame(drawFrame);
     $(window).on("resize", null, function (e) {

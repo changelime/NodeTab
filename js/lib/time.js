@@ -22,10 +22,11 @@ var formet = function(time){
     }
     return str;
 };
-var genFonts = function genFonts(context){
-    context.font = "lighter " + size + "px 微软雅黑";
-    context.textAlign = "center";
-    context.textBaseline = "middle";
+var drawText = function drawText(context){
+    context.save();
+    // context.font = "lighter " + size + "px 微软雅黑";
+    // context.textAlign = "center";
+    // context.textBaseline = "middle";
     context.fillStyle = "red";
     var text = getTimeText();
     for(var i = 0; i < 8; i++)
@@ -36,8 +37,10 @@ var genFonts = function genFonts(context){
         context.fillText(text[i], offsetLeft + nowPos + sizeHalf, center.y);
     }
     text = null;
+    context.restore();
 };
-var genRects = function genRects(context){
+var drawRects = function drawRects(context){
+    context.save();
     context.fillStyle = "rgba(255,255,255,0.8)";
     for(var i = 0; i < 8; i++)
     {
@@ -46,6 +49,7 @@ var genRects = function genRects(context){
         var nowPos = nowPosCenter - sizeHalf;
         context.fillRect(offsetLeft + nowPos, (center.y - sizeHalf), size, size);
     }
+    context.restore();
 };
 var getTimeText = function getTimeText(){
     var date = new Date();
@@ -55,9 +59,9 @@ var getTimeText = function getTimeText(){
 };
 var draw = function draw(context){
     context.save();
-    genRects(context);
-    context.globalCompositeOperation="destination-out";
-    genFonts(context);
+    drawRects(context);
+    context.globalCompositeOperation = "destination-out";
+    drawText(context);
     context.restore();
 };
 var init = function init(el){
@@ -71,13 +75,16 @@ var init = function init(el){
     sizeHalf = size / 2;
     totalWidth = 1280;
     offsetLeft = (width - totalWidth) / 2;
-    col = totalWidth/8;
+    col = totalWidth / 8;
     colHalf = col /2;
     context = el[0].getContext("2d");
     el.attr("width", width);
     el.attr("height", height);
     el.width(width);
     el.height(height);
+    context.font = `lighter ${size}px 微软雅黑`;
+    context.textAlign = "center";
+    context.textBaseline = "middle";
 };
 var drawTime = function drawTime(el) {
     init(el);

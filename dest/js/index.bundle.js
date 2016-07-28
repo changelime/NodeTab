@@ -854,7 +854,7 @@ $__System.register("20", [], function (_export) {
 $__System.register("22", ["20", "21", "23"], function (_export) {
     "use strict";
 
-    var util, Node, $, context, width, height, center, minDits, springAmount, nodes, nodeNum, rotate, checkCollision, spring, move, draw, init, genNodes, drawNodeGarden;
+    var util, Node, $, context, width, height, center, minDits, springAmount, nodes, nodeNum, lineColors, rotate, checkCollision, spring, move, draw, init, genNodes, eachNode, drawNodeGarden;
     return {
         setters: [function (_3) {
             util = _3["default"];
@@ -874,7 +874,8 @@ $__System.register("22", ["20", "21", "23"], function (_export) {
             minDits = 150;
             springAmount = 0.0000005;
             nodes = [];
-            nodeNum = 150;
+            nodeNum = 100;
+            lineColors = "rgba(255,255,255,0.3)";
 
             rotate = function rotate(x, y, sin, cos, reverse) {
                 return {
@@ -947,7 +948,7 @@ $__System.register("22", ["20", "21", "23"], function (_export) {
                 var dy = partB.getY() - partA.getY();
                 var dist = Math.sqrt(dx * dx + dy * dy);
                 if (minDits > dist) {
-                    util.connectWithLine(context, partA, partB, "rgba(255,255,255,0.3)");
+                    util.connectWithLine(context, partA, partB, lineColors);
                     var ax = dx * springAmount;
                     var ay = dy * springAmount;
                     partA.vx += ax;
@@ -1006,14 +1007,20 @@ $__System.register("22", ["20", "21", "23"], function (_export) {
                 }
             };
 
+            eachNode = function eachNode() {
+                for (var i = 0; i < nodeNum; i++) {
+                    move(nodes[i], i);
+                    draw(nodes[i], i);
+                }
+            };
+
             drawNodeGarden = function drawNodeGarden(el) {
                 init(el);
                 genNodes();
                 function drawFrame() {
                     requestAnimationFrame(drawFrame);
                     context.clearRect(0, 0, width, height);
-                    nodes.forEach(move);
-                    nodes.forEach(draw);
+                    eachNode();
                 };
                 requestAnimationFrame(drawFrame);
                 $(window).on("resize", null, function (e) {
@@ -1029,7 +1036,7 @@ $__System.register("22", ["20", "21", "23"], function (_export) {
 $__System.register("24", ["23"], function (_export) {
     "use strict";
 
-    var $, context, width, height, center, size, sizeHalf, totalWidth, offsetLeft, col, colHalf, formet, genFonts, genRects, getTimeText, draw, init, drawTime;
+    var $, context, width, height, center, size, sizeHalf, totalWidth, offsetLeft, col, colHalf, formet, drawText, drawRects, getTimeText, draw, init, drawTime;
     return {
         setters: [function (_) {
             $ = _["default"];
@@ -1057,10 +1064,11 @@ $__System.register("24", ["23"], function (_export) {
                 return str;
             };
 
-            genFonts = function genFonts(context) {
-                context.font = "lighter " + size + "px 微软雅黑";
-                context.textAlign = "center";
-                context.textBaseline = "middle";
+            drawText = function drawText(context) {
+                context.save();
+                // context.font = "lighter " + size + "px 微软雅黑";
+                // context.textAlign = "center";
+                // context.textBaseline = "middle";
                 context.fillStyle = "red";
                 var text = getTimeText();
                 for (var i = 0; i < 8; i++) {
@@ -1070,9 +1078,11 @@ $__System.register("24", ["23"], function (_export) {
                     context.fillText(text[i], offsetLeft + nowPos + sizeHalf, center.y);
                 }
                 text = null;
+                context.restore();
             };
 
-            genRects = function genRects(context) {
+            drawRects = function drawRects(context) {
+                context.save();
                 context.fillStyle = "rgba(255,255,255,0.8)";
                 for (var i = 0; i < 8; i++) {
                     var nowLeftPos = col * i;
@@ -1080,6 +1090,7 @@ $__System.register("24", ["23"], function (_export) {
                     var nowPos = nowPosCenter - sizeHalf;
                     context.fillRect(offsetLeft + nowPos, center.y - sizeHalf, size, size);
                 }
+                context.restore();
             };
 
             getTimeText = function getTimeText() {
@@ -1091,9 +1102,9 @@ $__System.register("24", ["23"], function (_export) {
 
             draw = function draw(context) {
                 context.save();
-                genRects(context);
+                drawRects(context);
                 context.globalCompositeOperation = "destination-out";
-                genFonts(context);
+                drawText(context);
                 context.restore();
             };
 
@@ -1115,6 +1126,9 @@ $__System.register("24", ["23"], function (_export) {
                 el.attr("height", height);
                 el.width(width);
                 el.height(height);
+                context.font = "lighter " + size + "px 微软雅黑";
+                context.textAlign = "center";
+                context.textBaseline = "middle";
             };
 
             drawTime = function drawTime(el) {
