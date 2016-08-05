@@ -9,7 +9,7 @@
 ```sh
     git clone https://github.com/changelime/NodeTab.git
     cd NodeTab
-    npm run install
+    npm run dev
     //打开chrome扩展管理烈面，加载NodeTab目录
 ```
 
