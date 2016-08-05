@@ -3,6 +3,7 @@
 
 [![webstore][webstore-badge]][webstore-link]
 [![david-dm][david-dm-badge]][david-dm-link]
+[![travis-ci][travis-ci-badge]][travis-ci-link]
 
 ## 开发
 ```sh
@@ -41,3 +42,5 @@ MIT
 [webstore-link]:      https://chrome.google.com/webstore/detail/nodetab/blnaigipibhidkmocpndbblfkpmghaom
 [david-dm-badge]:     https://david-dm.org/changelime/NodeTab/dev-status.svg
 [david-dm-link]:      https://david-dm.org/changelime/NodeTab?type=dev
+[travis-ci-badge]:    https://api.travis-ci.org/changelime/NodeTab.svg
+[travis-ci-link]:     https://travis-ci.org/changelime/NodeTab
