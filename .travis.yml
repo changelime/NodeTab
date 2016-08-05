@@ -1,11 +1,9 @@
 language: node_js
 node_js: stable
 
-install:
-  - npm install
 
 before_script:
-  - jspm install
+  - npm run install
 
 script:
   - npm run built

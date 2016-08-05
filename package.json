@@ -1,11 +1,11 @@
 {
   "name": "nodetab",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A new tab extensions for Chrome based on node garden",
   "author": "change li",
   "license": "MIT",
   "scripts": {
-    "install": "npm install && jspm install",
+    "install": "npm install --dev && jspm install",
     "built": "gulp built"
   },
   "jspm": {
