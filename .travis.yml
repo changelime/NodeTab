@@ -5,6 +5,7 @@ install:
   - npm install --only=dev
 
 before_script:
+  - jspm config registries.github.auth $JSPM_GITHUB_AUTH_TOKEN
   - jspm install
 
 script:
