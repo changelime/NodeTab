@@ -1,8 +1,8 @@
 # NodeTab
 一个基于Node Garden的Chrome新标签页扩展
 
-## 安装
 [![webstore][webstore-badge]][webstore-link]
+[![david-dm][david-dm-badge]][david-dm-link]
 
 ## 开发
 ```sh
@@ -37,5 +37,7 @@ MIT
 
 
 <!-- Link -->
-[webstore-badge]:     https://img.shields.io/badge/install-google%20webstore-brightgreen.svg
+[webstore-badge]:     https://img.shields.io/chrome-web-store/v/blnaigipibhidkmocpndbblfkpmghaom.svg
 [webstore-link]:      https://chrome.google.com/webstore/detail/nodetab/blnaigipibhidkmocpndbblfkpmghaom
+[david-dm-badge]:     https://david-dm.org/changelime/NodeTab/dev-status.svg
+[david-dm-link]:      https://david-dm.org/changelime/NodeTab?type=dev
