@@ -5,7 +5,7 @@
   "author": "change li",
   "license": "MIT",
   "scripts": {
-    "install": "npm install --dev && jspm install",
+    "install": "npm install --only=dev && jspm install",
     "built": "gulp built"
   },
   "jspm": {
