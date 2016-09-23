@@ -158,17 +158,41 @@ var eachNode = function eachNode() {
     }
 };
 var drawNodeGarden = function drawNodeGarden(el) {
+    var status = false;
     init(el);
     genNodes();
     function drawFrame(){
-        requestAnimationFrame(drawFrame);
         context.clearRect(0, 0, width, height);
         eachNode();
+        if( status )
+        {   
+            requestAnimationFrame(drawFrame);
+        }
+        else
+        {
+            context.clearRect(0, 0, width, height);
+        }
     };
-    requestAnimationFrame(drawFrame);
+    function start(){
+        if( !status )
+        {
+            status = true;
+            requestAnimationFrame(drawFrame);
+        }
+    }
+    function stop(){
+        if( status )
+        {
+            status = false;
+        }
+    }
     $(window).on("resize", null, function (e) {
         init(el);
     });
+    return {
+        start,
+        stop
+    };
 };
 
 export default drawNodeGarden;

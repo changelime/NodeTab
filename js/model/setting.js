@@ -1,9 +1,7 @@
-/**
- * status [0, 1, 2]
- */
-import $ from "jquery";
+import objToModel from "../lib/storage";
 
-const defaultSetting = {
+const NAME = "setting";
+const DEFAULT_SETTING = {
     page: {
         index: 0
     },
@@ -13,7 +11,7 @@ const defaultSetting = {
     topsites: {
         status: true
     },
-    gardon: {
+    garden: {
         status: true
     },
     background: {
@@ -33,7 +31,28 @@ const defaultSetting = {
         }
     }
 };
-const dataName = "setting";
+
+var model = objToModel(NAME, DEFAULT_SETTING, function(model){
+    return {
+        upPageIndex(){
+            var index = model.getPageIndex();
+            if(index < 2)
+            {
+                index++;
+            }
+            model.setPageIndex(index);
+        },
+        downPageIndex(){
+            var index = model.getPageIndex();
+            if( index > 0 )
+            {
+                index--;
+            }
+            model.setPageIndex(index);
+        }
+    };    
+});
+console.log(model);
 class Setting{
     constructor(){
         this._load();
@@ -54,20 +73,6 @@ class Setting{
     setTopsitesStatus(status) {
         this.setting.topsites.status = status;
         this._update(this.setting);
-        this.applyTopsitesStatus(this.topsites);
-    }
-    applyTopsitesStatus(topsites) {
-        var status = this.getTopsitesStatus();
-        if( status )
-        {
-            topsites.ctrl.show();
-            topsites.$btn.attr("checked", "checked");
-        }
-        else
-        {
-            topsites.ctrl.hide();
-            topsites.$btn.removeAttr("checked");
-        }
     }
     getTimeStatus(){
         return this.setting.time.status;
@@ -75,20 +80,6 @@ class Setting{
     setTimeStatus(status) {
         this.setting.time.status = status;
         this._update(this.setting);
-        this.applyTimeStatus(this.time);
-    }
-    applyTimeStatus(time) {
-        var status = this.getTimeStatus();
-        if( status )
-        {
-            time.ctrl.start();
-            time.$btn.attr("checked", "checked");
-        }
-        else
-        {
-            time.ctrl.stop();
-            time.$btn.removeAttr("checked");
-        }
     }
     getPageIndex(){
         return this.setting.page.index;
@@ -96,7 +87,6 @@ class Setting{
     setPageIndex(index) {
         this.setting.page.index = index;
         this._update(this.setting);
-        this.applyPageIndex();
     }
     upPageIndex(){
         var index = this.getPageIndex();
@@ -113,25 +103,6 @@ class Setting{
             index--;
         }
         this.setPageIndex(index);
-    }
-    applyPageIndex() {
-        var wrapper = $("#wrapper");
-        var index = this.getPageIndex();
-        switch(index)
-        {
-            case 0 :
-                wrapper.removeClass("show-topsites");
-                wrapper.removeClass("hide-time");
-                break;
-            case 1 :
-                wrapper.addClass("show-topsites");
-                wrapper.removeClass("hide-time");
-                break;
-            case 2 :
-                wrapper.addClass("show-topsites");
-                wrapper.addClass("hide-time");
-                break;
-        }
     }
     setBackgroundImgStatus(status){
         this.setting.background.img.status = status;
@@ -196,23 +167,9 @@ class Setting{
     setGardenStatus(status){
         this.setting.gardon.status = status;
         this._update(this.setting);
-        this.applyGarden(this.gardon);
     }
     getGardenStatus(){
         return this.setting.gardon.status;
-    }
-    applyGarden(gardon){
-        var status = this.getGardenStatus();
-        if( status )
-        {
-            gardon.ctrl.start();
-            gardon.$btn.attr("checked", "checked");
-        }
-        else
-        {
-            gardon.ctrl.stop();
-            gardon.$btn.removeAttr("checked");
-        }
     }
     setBackgroundColorStatus(status){
         this.setting.background.color.status = status;
@@ -268,19 +225,19 @@ class Setting{
             this._updateBackgroundCss({});
         }
     }
-    init({gardon, time, topsites}){
-        this.gardon = gardon;
-        this.time = time;
-        this.topsites = topsites;
-        setTimeout(()=>{
-            this.applyPageIndex();
-            this.applyTimeStatus(time);
-            this.applyTopsitesStatus(topsites);
-            this.applyBackgroundImg();
-            this.applyBackgroundColor();
-            this.applyGarden(gardon);
-        }, 100);
-    }
+    // init({gardon, time, topsites}){
+    //     this.gardon = gardon;
+    //     this.time = time;
+    //     this.topsites = topsites;
+    //     setTimeout(()=>{
+    //         // this.applyPageIndex();
+    //         // this.applyTimeStatus(time);
+    //         // this.applyTopsitesStatus(topsites);
+    //         // this.applyBackgroundImg();
+    //         // this.applyBackgroundColor();
+    //         // this.applyGarden(gardon);
+    //     }, 100);
+    // }
 }
 
-export default new Setting();
+export default model;

@@ -87,16 +87,40 @@ var init = function init(el){
     context.textBaseline = "middle";
 };
 var drawTime = function drawTime(el) {
+    var status = false;
     init(el);
     function drawFrame(){
-        requestAnimationFrame(drawFrame);
 	    context.clearRect(0, 0, width, height);
         draw(context);
+        if( status )
+        {   
+            requestAnimationFrame(drawFrame);
+        }
+        else
+        {
+            context.clearRect(0, 0, width, height);
+        }
     };
-    requestAnimationFrame(drawFrame);
+    function start(){
+        if( !status )
+        {
+            status = true;
+            requestAnimationFrame(drawFrame);
+        }
+    }
+    function stop(){
+        if( status )
+        {
+            status = false;
+        }
+    }
     $(window).on("resize", null, function (e) {
         init(el);
     });
+    return {
+        start,
+        stop
+    };
 };
 
 export default drawTime;

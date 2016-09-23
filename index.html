@@ -7,6 +7,43 @@
 <body>
 	<canvas id="bg"></canvas>
 	<div id="wrapper" >
+		<div id="setting" >
+			<input type="checkbox" class="open-btn" />
+			<div class="panel" >
+				<ul>
+					<li class="panel-item" >
+						<label class="panel-item-left" for="gardon-switch">Node Garden</label>
+						<div class="panel-item-right">
+							<input type="checkbox" id="gardon-switch" class="switch-btn" />
+						</div>
+					</li>
+					<li class="panel-item" >
+						<label class="panel-item-left" for="time-switch">Time</label>
+						<div class="panel-item-right">
+							<input type="checkbox" id="time-switch" class="switch-btn" />
+						</div>
+					</li>
+					<li class="panel-item" >
+						<label class="panel-item-left" for="topsites-switch">Topsites</label>
+						<div class="panel-item-right">
+							<input type="checkbox" id="topsites-switch" class="switch-btn" />
+						</div>
+					</li>
+					<li class="panel-item" >
+						<label class="panel-item-left" for="backround-img-switch">Background Image</label>
+						<div class="panel-item-right">
+							<input type="checkbox" id="backround-img-switch" class="switch-btn" />
+						</div>
+					</li>
+					<li class="panel-item" >
+						<label class="panel-item-left" for="backround-img-opacity-number">Background Image Opacity</label>
+						<div class="panel-item-right">
+							<input type="number" step="0.1" min="0.1" max="1" id="backround-img-opacity-number" class="number-input" />
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
 		<canvas id="time"></canvas>
 		<div id="topsites" >
 			<ul>
