@@ -1,6 +1,6 @@
 import $ from "jquery";
-import Node from "node";
-import util from "util";
+import Node from "node-garden/node";
+import util from "node-garden/util";
 
 var context = null;
 var width = $(window).width();
@@ -157,9 +157,15 @@ var eachNode = function eachNode() {
         draw(nodes[i], i);
     }
 };
+var instans = new WeakMap();
 var drawNodeGarden = function drawNodeGarden(el) {
+    if( instans.has(el) )
+    {
+        return instans.get(el);
+    }
+    var $el = $(el);
     var status = false;
-    init(el);
+    init($el);
     genNodes();
     function drawFrame(){
         context.clearRect(0, 0, width, height);
@@ -187,12 +193,13 @@ var drawNodeGarden = function drawNodeGarden(el) {
         }
     }
     $(window).on("resize", null, function (e) {
-        init(el);
+        init($el);
     });
-    return {
+    instans.set(el, {
         start,
         stop
-    };
+    })
+    return instans.get(el);
 };
 
 export default drawNodeGarden;

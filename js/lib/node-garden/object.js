@@ -1,4 +1,4 @@
-import util from "util";
+import util from "node-garden/util";
 
 class Obj
 {

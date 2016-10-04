@@ -11,7 +11,9 @@ function load(name, def){
     }
     return JSON.parse(localStorage[name]);
 }
-
+function erase(name){
+    delete localStorage[name];
+}
 export function update(name, newObj){
     localStorage[name] = JSON.stringify(newObj);
 }
@@ -56,11 +58,25 @@ export function getModel(modelName, obj, parents = {keys: [], values: [obj]}){
     return fns;
 }
 
-export function objToModel(name, def, extension){
+export function objToModel(name, def, version, extension){
     var currentObj = load(name, def);
+    if( currentObj.__version__ !== version )
+    {
+        erase(name);
+        def = Object.assign({}, def, {
+            __version__: version
+        });
+        currentObj = load(name, def);
+    }
     var model = getModel(name, currentObj);
     var ext = extension(model);
-    model = Object.assign(model, ext);
+    model = Object.assign(model, ext, {
+        getObject(){
+            let cloneObject = Object.assign({}, currentObj);
+            delete cloneObject["__version__"];
+            return cloneObject;
+        }
+    });
     return model;
 }
 

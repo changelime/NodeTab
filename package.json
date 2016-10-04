@@ -1,6 +1,6 @@
 {
   "name": "nodetab",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "A new tab extensions for Chrome based on node garden",
   "author": "change li",
   "license": "MIT",
@@ -10,8 +10,13 @@
   },
   "jspm": {
     "dependencies": {
-      "jquery": "npm:jquery@^3.0.0",
-      "jquery-mousewheel": "npm:jquery-mousewheel@^3.1.13"
+      "jquery": "npm:jquery@^3.1.1",
+      "jsx": "github:floatdrop/plugin-jsx@^1.2.1",
+      "react": "npm:react@^15.3.2",
+      "react-dom": "npm:react-dom@^15.3.2",
+      "react-redux": "npm:react-redux@^4.4.5",
+      "redux": "npm:redux@^3.6.0",
+      "redux-promise": "npm:redux-promise@^0.5.3"
     },
     "devDependencies": {
       "babel": "npm:babel-core@^5.8.24",
@@ -20,10 +25,16 @@
     }
   },
   "devDependencies": {
+    "babel-plugin-transform-es2015-arrow-functions": "^6.8.0",
+    "babel-plugin-transform-es2015-block-scoped-functions": "^6.8.0",
+    "babel-plugin-transform-es2015-block-scoping": "^6.15.0",
     "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
     "gulp-jspm": "^0.5.12",
-    "gulp-minify": "0.0.12",
     "gulp-processhtml": "^1.1.0",
-    "jspm": "^0.16.39"
+    "gulp-react": "^3.1.0",
+    "gulp-uglify": "^2.0.0",
+    "jspm": "^0.16.39",
+    "pump": "^1.0.1"
   }
 }

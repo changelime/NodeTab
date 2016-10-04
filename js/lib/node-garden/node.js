@@ -1,4 +1,4 @@
-import Obj from "object";
+import Obj from "node-garden/object";
 
 
 class Node extends Obj

@@ -24,9 +24,6 @@ var formet = function(time){
 };
 var drawText = function drawText(context){
     context.save();
-    // context.font = "lighter " + size + "px 微软雅黑";
-    // context.textAlign = "center";
-    // context.textBaseline = "middle";
     context.fillStyle = "red";
     var text = getTimeText();
     for(var i = 0; i < 8; i++)
@@ -86,9 +83,15 @@ var init = function init(el){
     context.textAlign = "center";
     context.textBaseline = "middle";
 };
+var instans = new WeakMap();
 var drawTime = function drawTime(el) {
+    if( instans.has(el) )
+    {
+        return instans.get(el);
+    }
+    var $el = $(el);
     var status = false;
-    init(el);
+    init($el);
     function drawFrame(){
 	    context.clearRect(0, 0, width, height);
         draw(context);
@@ -115,12 +118,13 @@ var drawTime = function drawTime(el) {
         }
     }
     $(window).on("resize", null, function (e) {
-        init(el);
+        init($el);
     });
-    return {
+    instans.set(el, {
         start,
         stop
-    };
+    })
+    return instans.get(el);
 };
 
 export default drawTime;
