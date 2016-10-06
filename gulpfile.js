@@ -1,9 +1,9 @@
 var gulp = require("gulp");
 var gulp_jspm = require("gulp-jspm"); 
-var uglify = require('gulp-uglify');
-var react = require('gulp-react');
-var pump = require('pump');
-var babel = require('gulp-babel');
+var uglify = require("gulp-uglify");
+var react = require("gulp-react");
+var pump = require("pump");
+var babel = require("gulp-babel");
 var processhtml = require("gulp-processhtml");
 
 gulp.task("style", function(cb) {

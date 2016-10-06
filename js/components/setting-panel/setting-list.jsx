@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import SettingItem from "components/setting-panel/setting-list-item.jsx!";
 import TimeBtn from "components/form/switch/switch-btn-time.jsx!";
-import NodeGardenBtn from "components/form/switch/switch-btn-Garden.jsx!";
+import NodeGardenBtn from "components/form/switch/switch-btn-garden.jsx!";
 import TopsitesBtn from "components/form/switch/switch-btn-topsites.jsx!";
 import BackgroundImgBtn from "components/form/switch/switch-btn-background-img.jsx!";
 import OpacityRange from "components/form/range/opacity-range.jsx!";
