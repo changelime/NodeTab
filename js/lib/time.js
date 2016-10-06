@@ -1,8 +1,6 @@
-import $ from "jquery";
-
 var context = null;
-var width = $(window).width();
-var height = $(window).height();
+var width = window.outerWidth;
+var height = window.outerHeight;
 var center = {
     x : width/2,
     y : height/2
@@ -62,8 +60,8 @@ var draw = function draw(context){
     context.restore();
 };
 var init = function init(el){
-    width = $(window).width();
-    height = $(window).height();
+    width = window.outerWidth;
+    height = window.outerHeight;
     center = {
         x : width/2,
         y : height/2
@@ -74,11 +72,11 @@ var init = function init(el){
     offsetLeft = (width - totalWidth) / 2;
     col = totalWidth / 8;
     colHalf = col /2;
-    context = el[0].getContext("2d");
-    el.attr("width", width);
-    el.attr("height", height);
-    el.width(width);
-    el.height(height);
+    context = el.getContext("2d");
+    el.width = width;
+    el.height = height;
+    el.style.width = width;
+    el.style.height = height;
     context.font = `lighter ${size}px 微软雅黑`;
     context.textAlign = "center";
     context.textBaseline = "middle";
@@ -89,9 +87,8 @@ var drawTime = function drawTime(el) {
     {
         return instans.get(el);
     }
-    var $el = $(el);
     var status = false;
-    init($el);
+    init(el);
     function drawFrame(){
 	    context.clearRect(0, 0, width, height);
         draw(context);
@@ -117,9 +114,9 @@ var drawTime = function drawTime(el) {
             status = false;
         }
     }
-    $(window).on("resize", null, function (e) {
-        init($el);
-    });
+    window.addEventListener("resize", function (e) {
+        init(el);
+    }, false);
     instans.set(el, {
         start,
         stop

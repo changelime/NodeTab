@@ -1,6 +1,6 @@
 {
   "name": "nodetab",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A new tab extensions for Chrome based on node garden",
   "author": "change li",
   "license": "MIT",
@@ -10,7 +10,6 @@
   },
   "jspm": {
     "dependencies": {
-      "jquery": "npm:jquery@^3.1.1",
       "jsx": "github:floatdrop/plugin-jsx@^1.2.1",
       "react": "npm:react@^15.3.2",
       "react-dom": "npm:react-dom@^15.3.2",

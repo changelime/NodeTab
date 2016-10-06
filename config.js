@@ -22,7 +22,6 @@ System.config({
     "babel-runtime": "npm:babel-runtime@5.8.38",
     "color": "lib/color",
     "core-js": "npm:core-js@1.2.7",
-    "jquery": "npm:jquery@3.1.1",
     "jsx": "github:floatdrop/plugin-jsx@1.2.1",
     "node-garden/node": "lib/node-garden/node",
     "node-garden/node-garden": "lib/node-garden/node-garden",

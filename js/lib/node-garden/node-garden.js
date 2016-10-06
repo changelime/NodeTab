@@ -1,10 +1,9 @@
-import $ from "jquery";
 import Node from "node-garden/node";
 import util from "node-garden/util";
 
 var context = null;
-var width = $(window).width();
-var height = $(window).height();
+var width = window.outerWidth;
+var height = window.outerHeight;
 var center = {
     x : width/2,
     y : height/2
@@ -126,13 +125,13 @@ var draw = function(node){
     node.draw(context);
 };
 var init = function init(el){
-    width = $(window).width();
-    height = $(window).height();
-    context = el[0].getContext("2d");
-    el.attr("width", width);
-    el.attr("height", height);
-    el.width(width);
-    el.height(height);
+    width = window.outerWidth;
+    height = window.outerHeight;
+    context = el.getContext("2d");
+    el.width = width;
+    el.height = height;
+    el.style.width = width;
+    el.style.height = height;
     center = {
         x : width/2,
         y : height/2
@@ -163,9 +162,8 @@ var drawNodeGarden = function drawNodeGarden(el) {
     {
         return instans.get(el);
     }
-    var $el = $(el);
     var status = false;
-    init($el);
+    init(el);
     genNodes();
     function drawFrame(){
         context.clearRect(0, 0, width, height);
@@ -192,9 +190,9 @@ var drawNodeGarden = function drawNodeGarden(el) {
             status = false;
         }
     }
-    $(window).on("resize", null, function (e) {
-        init($el);
-    });
+    window.addEventListener("resize", function (e) {
+        init(el);
+    }, false);
     instans.set(el, {
         start,
         stop
